@@ -3,7 +3,9 @@ import React, { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { deleteContact, updateContact } from "./action/contact";
-
+import { GiCancel, GiSave } from "react-icons/gi";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { TiEdit } from "react-icons/ti";
 
 const ContactCard = ({ name, phone, index }) => {
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const ContactCard = ({ name, phone, index }) => {
               className="img-thumbnail border-secondary rounded-circle"
             />
           </div>
-          <div className="col-md-9"   style={{ textAlign: "justify" }}>
+          <div className="col-md-9" style={{ textAlign: "justify" }}>
             <div className="card-body py-1 px-2 text-left">
               <h5 className="card-title">
                 {!editMode && name}
@@ -63,26 +65,32 @@ const ContactCard = ({ name, phone, index }) => {
                   />
                 )}
               </p>
-              <p className="card-text" style={{paddingTop : "50px"}}>
+              <p className="card-text" style={{ paddingTop: "50px" }}>
                 {!editMode && (
                   <>
-                    <button
-                      type="button"
-                      className="btn btn-outline-info mr-2"
-                      onClick={toggleEditMode}
-                      style={{ marginRight: "35px" }}
-                    >
-                      <i className="fas fa-edit mr-2"></i>
-                      Edit
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      onClick={deleteContactFromList}
-                    >
-                      <i className="fas fa-trash mr-2"></i>
-                      Delete
-                    </button>
+                    <div style={{ display: "flex", float: "left" }}>
+                      <div>
+                        <button
+                          type="button"
+                          className="btn btn-outline-info mr-2"
+                          onClick={toggleEditMode}
+                          style={{ marginRight: "35px" }}
+                        >
+                          <TiEdit />
+                          Edit
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          type="button"
+                          className="btn btn-outline-danger"
+                          onClick={deleteContactFromList}
+                        >
+                          <RiDeleteBinLine />
+                          Delete
+                        </button>
+                      </div>
+                    </div>
                   </>
                 )}
 
@@ -94,7 +102,7 @@ const ContactCard = ({ name, phone, index }) => {
                       onClick={updateContactData}
                       style={{ marginRight: "35px" }}
                     >
-                      <i className="fas fa-save mr-2"></i>
+                      <GiSave />
                       Save
                     </button>
                     <button
@@ -102,7 +110,7 @@ const ContactCard = ({ name, phone, index }) => {
                       className="btn btn-outline-secondary mr-2"
                       onClick={toggleEditMode}
                     >
-                      <i className="fas fa-times-circle mr-2"></i>
+                      <GiCancel />
                       Cancel
                     </button>
                   </>
