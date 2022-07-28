@@ -20,3 +20,7 @@ a {
   display: flex;
   flex-direction: row;
 }
+
+.input-text{
+  padding: 5px;
+}
