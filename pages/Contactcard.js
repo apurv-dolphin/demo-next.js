@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { deleteContact, updateContact } from "./action/contact";
@@ -30,9 +30,16 @@ const ContactCard = ({ name, phone, index }) => {
     <li className="list-group-item">
       <div className="card border-0">
         <div className="row no-gutters">
-          <div className="col-md-3">
+          <div
+            className="col-md-3"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <img
-              src={"https://picsum.photos/200/300"}
+              src={"https://picsum.photos/200/305"}
               alt=""
               className="img-thumbnail border-secondary rounded-circle"
             />
@@ -65,7 +72,7 @@ const ContactCard = ({ name, phone, index }) => {
                   />
                 )}
               </p>
-              <p className="card-text" style={{ paddingTop: "50px" }}>
+              <p className="card-text">
                 {!editMode && (
                   <>
                     <div style={{ display: "flex", float: "left" }}>
